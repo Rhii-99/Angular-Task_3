@@ -1,0 +1,36 @@
+<!-- <div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+  </div> -->
+<div [hidden]="submitted" style="width: 400px">
+  <form (ngSubmit)="onSubmit(addProductForm)" #addProductForm="ngForm">
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="product.title"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Price</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="product.price"
+        name="price"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!addProductForm.form.valid">Submit</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <h4>Edited successfully!</h4>
+  
+  
+</div>
+
